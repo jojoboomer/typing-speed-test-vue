@@ -1,0 +1,158 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: Sora;
+  src: url('/fonts/Sora/Sora-VariableFont_wght.ttf');
+  font-style: normal;
+  font-weight: 400 600 700;
+  font-display: swap;
+}
+
+@theme {
+  /* Font Family */
+  --font-sora: 'Sora', system-ui, sans-serif;
+
+  /* Font Sizes (text-*) */
+  --text-1-desktop: 40px;
+  --text-1-mobile: 24px;
+  --text-1-regular-desktop: 40px;
+  --text-1-regular-mobile: 32px;
+  --text-2: 24px;
+  --text-3-desktop: 20px;
+  --text-3-mobile: 16px;
+  --text-4: 18px;
+  --text-5: 16px;
+  --text-6: 12px;
+
+  /* Line Heights (leading-*) */
+  --leading-1-desktop: 136%; /* = 54.4px */
+  --leading-1-mobile: 120%; /* = 28.8px */
+  --leading-2: 100%; /* = 24px */
+  --leading-3: 120%; /* = 24px (20px * 1.2), 19.2px (16px * 1.2) */
+  --leading-4: 120%;
+  --leading-5: 120%;
+  --leading-6: 120%;
+
+  /* Letter Spacing (tracking-*) */
+  --tracking-1-desktop: 0.4px;
+  --tracking-1-mobile: 0.32px;
+  --tracking-1-regular: 0.4px;
+  --tracking-3-desktop: -0.6px;
+  --tracking-3-mobile: -0.48px;
+  --tracking-3-semibold: -0.3px;
+  --tracking-4: -0.6px;
+  --tracking-5: -0.48px;
+  --tracking-6: 0px;
+
+  /* Font Weights */
+  --font-weight-bold: 700;
+  --font-weight-semibold: 600;
+  --font-weight-regular: 400;
+
+  /* Colors */
+  --color-neutral-900: hsl(0, 0%, 7%);
+  --color-neutral-800: hsl(0, 0%, 15%);
+  --color-neutral-500: hsl(240, 3%, 46%);
+  --color-neutral-400: hsl(240, 1%, 59%);
+  --color-neutral-0: hsl(0, 0%, 100%);
+  --color-blue-600: hsl(214, 100%, 55%);
+  --color-blue-400: hsl(210, 100%, 65%);
+  --color-red-500: hsl(354, 63%, 57%);
+  --color-green-500: hsl(140, 63%, 57%);
+  --color-yellow-500: hsl(49, 85%, 70%);
+}
+
+@layer components {
+  /* Text Preset 1 - Bold (mobile 24px / desktop 40px) */
+  .text-tp1-bold {
+    font-family: var(--font-sora);
+    font-weight: 700; /* Bold */
+    font-size: 24px; /* mobile */
+    line-height: 1.2; /* 120% mobile */
+    letter-spacing: 0.32px; /* mobile */
+  }
+  @media (min-width: 768px) {
+    .text-tp1-bold {
+      font-size: 40px; /* desktop */
+      line-height: 1.36; /* 136% */
+      letter-spacing: 0.4px;
+    }
+  }
+
+  /* Text Preset 1 - Regular (mobile 32px / desktop 40px) */
+  .text-tp1-regular {
+    font-family: var(--font-sora);
+    font-weight: 400;
+    font-size: 32px; /* mobile */
+    line-height: 1.36; /* 136% (mobile stated) */
+    letter-spacing: 0.4px;
+  }
+  @media (min-width: 768px) {
+    .text-tp1-regular {
+      font-size: 40px; /* desktop */
+      line-height: 1.36;
+      letter-spacing: 0.4px;
+    }
+  }
+
+  /* Text Preset 2 (Bold, 24px, LH 100%) */
+  .text-tp2 {
+    font-family: var(--font-sora);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: 0px;
+  }
+
+  /* Text Preset 3 - Regular (mobile 16px / desktop 20px) */
+  .text-tp3-regular {
+    font-family: var(--font-sora);
+    font-weight: 400;
+    font-size: 16px; /* mobile */
+    line-height: 1.2; /* 120% */
+    letter-spacing: -0.48px; /* mobile */
+  }
+  @media (min-width: 768px) {
+    .text-tp3-regular {
+      font-size: 20px; /* desktop */
+      line-height: 1.2;
+      letter-spacing: -0.6px;
+    }
+  }
+
+  /* Text Preset 3 - SemiBold (no mobile override given; uses desktop size 20px) */
+  .text-tp3-semibold {
+    font-family: var(--font-sora);
+    font-weight: 600; /* SemiBold */
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+  }
+
+  /* Text Preset 4 (18px, LH 120%, LS -0.6px) */
+  .text-tp4 {
+    font-family: var(--font-sora);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.2;
+    letter-spacing: -0.6px;
+  }
+
+  /* Text Preset 5 (16px, LH 120%, LS -0.48px) */
+  .text-tp5 {
+    font-family: var(--font-sora);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: -0.48px;
+  }
+
+  /* Text Preset 6 (12px, LH 120%, LS 0px) */
+  .text-tp6 {
+    font-family: var(--font-sora);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.2;
+    letter-spacing: 0px;
+  }
+}
