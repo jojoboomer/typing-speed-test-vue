@@ -7,7 +7,6 @@ import Star2 from '@/assets/images/pattern-star-2.svg?url'
 import { useGameStore } from '@/store/game.store'
 import { useTestStore } from '@/store/test.store'
 import { storeToRefs } from 'pinia'
-import { reactive } from 'vue'
 import Button from '../atoms/Button.vue'
 import RestartIcon from '../atoms/RestartIcon.vue'
 
@@ -23,12 +22,12 @@ type PageContent = {
   icon: string
 }
 
-const pageContent: PageContent = reactive({
+const pageContent: PageContent = {
   title: 'Test Complete!',
   subtitle: 'Solid run. Keep pushing to beat your high score.',
   label: "Go again",
   icon: Completed
-})
+}
 if (gameState.endType === 'first') {
   pageContent.title = "Baseline Established!"
   pageContent.subtitle = "You've set the bar. Now the real challange begins-time to beat it."
@@ -44,11 +43,11 @@ if (gameState.endType === 'first') {
 
 <template>
   <!-- Absolute icons -->
-  <img v-if="gameState.endType == 'recod'" :src="Confetti" alt="Confetti" class="absolute bottom-0 left-0 w-full" />
+  <img v-if="gameState.visibleConfetti" :src="Confetti" alt="Confetti" class="absolute bottom-0 left-0 w-full" />
   <img v-if="gameState.endType != 'recod'" :src="Star2" alt="Icon Star"
-    class="size-5 md:size-8 absolute top-31 md:top-48 lg:top-64 left-4 md:left-12 lg:left-28 " />
-  <img v-if="gameState.visibleConfetti" :src="Star1" alt="Icon Star"
-    class="size-10 md:size-20 absolute bottom-10 md:bottom-80 lg:bottom-40 right-5 md:right-15 lg:right-25" />
+    class="size-5 md:size-8 absolute top-31 md:top-48 lg:top-64 left-4 md:left-12 lg:left-28  animate-pulse" />
+  <img v-if="gameState.endType != 'recod'" :src="Star1" alt="Icon Star"
+    class="size-10 md:size-20 absolute bottom-10 md:bottom-80 lg:bottom-40 right-5 md:right-15 lg:right-25 animate-pulse" />
   <!-- Section -->
   <section class="relative text-center w-full flex flex-col items-center gap-6 md:gap-8 pt-8">
     <!-- Icon -->
@@ -79,7 +78,7 @@ if (gameState.endType === 'first') {
     </div>
     <!-- Button -->
     <div>
-      <Button>
+      <Button @click="gameState.restartGame()">
         {{ pageContent.label }}
         <RestartIcon width="10" height="10" :color="'fill-neutral-900'" />
       </Button>
