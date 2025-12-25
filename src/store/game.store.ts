@@ -17,7 +17,7 @@ export const useGameStore = defineStore('game-status', {
       // GAME STATE
       status: 'initial' as GameStatus,
       endType: '' as EndStatus,
-      personalRecord: 60,
+      personalRecord: 0,
       // CONFIG STATE
       mode: 'timed' as GameMode,
       difficulty: 'easy' as GameDifficulty,
