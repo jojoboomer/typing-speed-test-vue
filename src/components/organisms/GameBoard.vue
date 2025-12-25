@@ -2,7 +2,7 @@
 import { cn } from "@/lib/utils";
 import { useGameStore } from '@/store/game.store';
 import { useTestStore } from "@/store/test.store";
-import { computed, onMounted, ref, useTemplateRef, watch } from 'vue';
+import { computed, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue';
 import Button from "../atoms/Button.vue";
 import GameConfig from '../molecules/GameConfig.vue';
 import GameStats from '../molecules/GameStats.vue';
@@ -12,7 +12,7 @@ const inputRef = useTemplateRef('user-area')
 const gameState = useGameStore();
 const testState = useTestStore();
 
-let interval = null;
+let interval: ReturnType<typeof setInterval> | null = null;
 const userInput = ref('')
 const indexCursor = ref(0)
 const passageArray = computed(() => testState.passageSelected.split(''));
@@ -63,10 +63,21 @@ watch(() => testState.shouldEnd, (isTrue) => isTrue && handleEndGame())
 onMounted(() => {
   testState.getRandomPassage()
   testState.restartTestState()
+  gameState.status = 'initial'
+})
+onUnmounted(() => {
+  if (interval) {
+    clearInterval(interval)
+    interval = null
+  }
 })
 
 // auxiliar functions
 const handleStart = () => {
+  if (interval) {
+    clearInterval(interval);
+    interval = null
+  }
   gameState.startGame();
   interval = setInterval(() => {
     testState.elapsedTime++
@@ -78,7 +89,7 @@ const handleStart = () => {
 
 const handleEndGame = async () => {
   clearInterval(interval);
-  console.log(interval)
+  interval = null
   gameState.endGame()
 }
 
