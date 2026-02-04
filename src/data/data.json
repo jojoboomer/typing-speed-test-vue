@@ -1,130 +1,180 @@
 {
   "passages": {
-    "easy": [
-      {
-        "id": "easy-1",
-        "text": "The sun rose over the quiet town. Birds sang in the trees as people woke up and started their day. It was going to be a warm and sunny morning."
-      },
-      {
-        "id": "easy-2",
-        "text": "She walked to the store to buy some bread and milk. The shop was busy but she found what she needed quickly. On her way home, she saw a friend and waved."
-      },
-      {
-        "id": "easy-3",
-        "text": "The dog ran across the park chasing a ball. He was fast and loved to play. After a while, he got tired and lay down in the cool shade of a big oak tree."
-      },
-      {
-        "id": "easy-4",
-        "text": "I like to read books before I go to sleep. It helps me relax after a long day. My favorite stories are about adventure and travel to far away places."
-      },
-      {
-        "id": "easy-5",
-        "text": "The kitchen smelled of fresh coffee and toast. Mom was making breakfast while dad read the news. It was a normal morning in their small but cozy home."
-      },
-      {
-        "id": "easy-6",
-        "text": "We went to the beach last summer. The water was blue and the sand was warm. We built a big sand castle and looked for shells along the shore."
-      },
-      {
-        "id": "easy-7",
-        "text": "The cat sat on the window sill watching the rain. Drops fell down the glass one by one. She seemed happy to be inside where it was dry and warm."
-      },
-      {
-        "id": "easy-8",
-        "text": "My best friend lives next door to me. We play games together after school. Sometimes we ride our bikes around the block or sit and talk for hours."
-      },
-      {
-        "id": "easy-9",
-        "text": "Spring is my favorite time of year. Flowers start to bloom and the days get longer. I love to see the trees turn green again after the cold winter months."
-      },
-      {
-        "id": "easy-10",
-        "text": "The music played softly in the room. She closed her eyes and let the sounds wash over her. It was a simple song but it made her feel at peace."
-      }
-    ],
-    "medium": [
-      {
-        "id": "medium-1",
-        "text": "Learning a new skill takes patience and consistent practice. Whether you're studying a language, picking up an instrument, or mastering a sport, the key is to show up every day. Small improvements compound over time, and before you know it, you'll have made remarkable progress."
-      },
-      {
-        "id": "medium-2",
-        "text": "The old lighthouse had stood on the cliff for over a century, guiding sailors safely through treacherous waters. Its beam cut through the fog each night, a reassuring presence for those navigating the rocky coastline. Many storms had tested its structure, but it remained steadfast."
-      },
-      {
-        "id": "medium-3",
-        "text": "Coffee culture has evolved dramatically in recent decades. What was once a simple morning ritual has become an art form, with baristas crafting intricate latte designs and roasters sourcing beans from remote mountain villages. The humble cup of coffee now tells a global story."
-      },
-      {
-        "id": "medium-4",
-        "text": "Urban gardens are transforming city landscapes around the world. Residents are converting rooftops, balconies, and abandoned lots into thriving green spaces. These initiatives not only provide fresh produce but also create communities, reduce stress, and help combat the urban heat island effect."
-      },
-      {
-        "id": "medium-5",
-        "text": "The documentary explored how technology shapes our daily habits. From the moment we wake to an alarm on our phones to the podcasts we fall asleep to, digital tools have woven themselves into the fabric of modern life. The question is: are we in control?"
-      },
-      {
-        "id": "medium-6",
-        "text": "Traveling by train offers a unique perspective on the countryside. Unlike flying, which reduces landscapes to abstract patterns, rail journeys let you witness the gradual transitions between regions. You see farms give way to forests, and small towns emerge from rolling hills."
-      },
-      {
-        "id": "medium-7",
-        "text": "The chef believed that great cooking starts with quality ingredients. She visited local farmers each week, selecting vegetables at their peak ripeness. Her menu changed with the seasons, reflecting what the land offered. Diners appreciated the freshness they could taste in every bite."
-      },
-      {
-        "id": "medium-8",
-        "text": "Libraries have reinvented themselves for the digital age. Beyond lending books, they now offer coworking spaces, 3D printers, recording studios, and coding workshops. These community hubs have become places where people of all ages come to learn, create, and connect with others."
-      },
-      {
-        "id": "medium-9",
-        "text": "The architect designed buildings that worked with nature rather than against it. Large windows captured natural light, reducing the need for electricity. Green roofs absorbed rainwater and provided insulation. Her philosophy was simple: sustainable design should be beautiful, functional, and accessible to everyone."
-      },
-      {
-        "id": "medium-10",
-        "text": "Night markets come alive after sunset in cities across Asia. Vendors set up stalls selling everything from grilled skewers to handmade crafts. The air fills with enticing aromas and the buzz of conversation. Locals and tourists alike wander through, sampling street food and hunting for bargains."
-      }
-    ],
-    "hard": [
-      {
-        "id": "hard-1",
-        "text": "The philosopher's argument hinged on a seemingly paradoxical assertion: that absolute freedom, pursued without constraint, inevitably undermines itself. \"Consider,\" she wrote, \"how the libertarian ideal—when taken to its logical extreme—produces conditions in which the powerful dominate the weak, thereby eliminating freedom for the majority.\" Her critics dismissed this as sophistry; her supporters hailed it as profound."
-      },
-      {
-        "id": "hard-2",
-        "text": "Quantum entanglement—Einstein's \"spooky action at a distance\"—continues to perplex physicists and philosophers alike. When two particles become entangled, measuring one instantaneously affects the other, regardless of the distance separating them. This phenomenon doesn't violate relativity (no information travels faster than light), yet it challenges our intuitions about locality, causality, and the nature of reality itself."
-      },
-      {
-        "id": "hard-3",
-        "text": "The Renaissance polymath's correspondence reveals a mind of extraordinary breadth: in a single week's letters, he discussed astronomical observations, critiqued a colleague's architectural drawings, proposed improvements to the city's sewage system, and composed a sonnet for a patron's daughter. \"Specialization,\" he remarked wryly, \"is for insects.\" His contemporaries found him exhausting; posterity finds him inspirational."
-      },
-      {
-        "id": "hard-4",
-        "text": "Algorithmic trading has fundamentally restructured financial markets. High-frequency systems execute thousands of transactions per second, exploiting minute price discrepancies across exchanges. Critics argue this creates systemic fragility—the 2010 \"Flash Crash\" saw the Dow Jones plummet 1,000 points in minutes before recovering. Proponents counter that algorithms provide liquidity and reduce spreads, ultimately benefiting retail investors."
-      },
-      {
-        "id": "hard-5",
-        "text": "The biographer faced an ethical dilemma: her subject's private journals—recently discovered in an attic—contained revelations that would overturn his carefully cultivated public image. Should she publish them? \"Biography,\" she mused, \"exists in tension between truth-telling and respect for the dead.\" After months of deliberation, she chose disclosure, reasoning that sanitized history serves no one."
-      },
-      {
-        "id": "hard-6",
-        "text": "Microplastics have infiltrated virtually every ecosystem on Earth, from the Mariana Trench to Arctic ice cores. These polymer fragments—smaller than 5mm in diameter—originate from degrading consumer products, synthetic textiles, and industrial processes. Researchers have detected them in human blood, placental tissue, and breast milk; their long-term health implications remain disturbingly unclear. The ubiquity of plastic pollution represents an unprecedented experiment on planetary biology."
-      },
-      {
-        "id": "hard-7",
-        "text": "The conductor's interpretation of Mahler's Ninth Symphony emphasized its prophetic qualities—the premonition of catastrophe, the aching nostalgia for a world about to vanish. \"Mahler composed this knowing he was dying,\" she explained in the program notes, \"but he also intuited, somehow, that European civilization itself stood at the precipice.\" The orchestra's performance—hushed, trembling, transcendent—left the audience in stunned silence."
-      },
-      {
-        "id": "hard-8",
-        "text": "Constitutional scholars continue debating the \"counter-majoritarian difficulty\": how can judicial review—whereby unelected judges overturn legislation passed by democratic representatives—be reconciled with popular sovereignty? Some argue courts protect minority rights against tyrannical majorities; others contend this reasoning masks ideological preferences in neutral-sounding jurisprudence. The tension, perhaps, is irresolvable; democratic systems must balance competing values rather than optimize for any single principle."
-      },
-      {
-        "id": "hard-9",
-        "text": "The novelist's prose style—elliptical, fragmented, punctuated by abrupt temporal shifts—reflected her thematic preoccupations: memory's unreliability, identity's fluidity, the impossibility of objective narration. \"Every story,\" she declared in an interview, \"is simultaneously true and false; it reveals by concealing, illuminates by casting shadows.\" Critics accused her of obscurantism; she responded that clarity itself can be a form of deception."
-      },
-      {
-        "id": "hard-10",
-        "text": "The archaeological expedition unearthed artifacts that complicated prevailing theories about Bronze Age trade networks. Obsidian from Anatolia, lapis lazuli from Afghanistan, and amber from the Baltic—all discovered in a single Mycenaean tomb—suggested commercial connections far more extensive than previously hypothesized. \"We've underestimated ancient peoples' navigational capabilities and their appetite for luxury goods,\" the lead researcher observed. \"Globalization isn't as modern as we assume.\""
-      }
-    ]
+    "general": {
+      "easy": [
+        {
+          "id": "gen_easy_1",
+          "text": "The sun rises in the east and sets in the west. This is a daily occurrence that brings light and warmth to our world. Many people enjoy watching the sunrise or sunset."
+        },
+        {
+          "id": "gen_easy_2",
+          "text": "Water is essential for all living things. Humans need to drink water every day to stay healthy. Plants also require water to grow and produce food."
+        },
+        {
+          "id": "gen_easy_3",
+          "text": "Exercise is important for maintaining a healthy body. Walking, running, and swimming are good forms of exercise. Regular activity helps strengthen muscles and improve mood."
+        }
+      ],
+      "medium": [
+        {
+          "id": "gen_medium_1",
+          "text": "Globalization has increased interconnectedness among countries through trade and technology. This exchange influences cultures, economies, and politics worldwide, creating both opportunities and challenges."
+        },
+        {
+          "id": "gen_medium_2",
+          "text": "Renewable energy sources, such as solar and wind power, are crucial for sustainable development. They reduce reliance on fossil fuels and help mitigate the effects of climate change."
+        },
+        {
+          "id": "gen_medium_3",
+          "text": "Education empowers individuals by providing knowledge and critical thinking skills. Access to quality education can break cycles of poverty and foster social and economic progress."
+        }
+      ],
+      "hard": [
+        {
+          "id": "gen_hard_1",
+          "text": "The philosophical concept of existentialism explores individual freedom and the absence of inherent meaning in life. Thinkers like Sartre argued that humans must create their own purpose through choices and actions."
+        },
+        {
+          "id": "gen_hard_2",
+          "text": "Quantum mechanics challenges classical physics by introducing principles like superposition and entanglement. These phenomena are fundamental to understanding particles at subatomic scales."
+        },
+        {
+          "id": "gen_hard_3",
+          "text": "The Renaissance was a pivotal period marked by a revival of art, science, and humanism. It bridged the Middle Ages and modern history, catalyzing advancements in various fields across Europe."
+        }
+      ]
+    },
+    "programming": {
+      "easy": [
+        {
+          "id": "prog_easy_1",
+          "text": "Printing 'Hello, World!' is often the first program you write. It teaches you how to display text on the screen. This simple step is the start of learning any programming language."
+        },
+        {
+          "id": "prog_easy_2",
+          "text": "To add two numbers in code, you use the plus sign (+). For example, 5 + 3 equals 8. This basic math operation is common in many programs."
+        },
+        {
+          "id": "prog_easy_3",
+          "text": "An 'if' statement lets your program make decisions. It checks if a condition is true, like 'is the score greater than 10?'. If yes, it runs a specific block of code."
+        }
+      ],
+      "medium": [
+        {
+          "id": "prog_medium_1",
+          "text": "Recursion is a technique where a function calls itself to solve a smaller instance of a problem. A classic example is calculating a factorial, where n! = n * (n-1)!. It requires a well-defined base case to terminate."
+        },
+        {
+          "id": "prog_medium_2",
+          "text": "A hash map stores key-value pairs and provides average O(1) time complexity for lookups. It uses a hash function to compute an index into an array of buckets. Handling collisions is a key implementation detail, often done via chaining or open addressing."
+        },
+        {
+          "id": "prog_medium_3",
+          "text": "Asynchronous programming allows a program to initiate a long-running task and remain responsive to other events. Promises or async/await syntax in JavaScript are used to handle operations like fetching data from an API without blocking the main execution thread."
+        }
+      ],
+      "hard": [
+        {
+          "id": "prog_hard_1",
+          "text": "Tail call optimization (TCO) is a compiler technique where a recursive function call in tail position is executed without increasing the call stack. This transforms recursion into iteration, preventing stack overflow. It is part of the ES2015 specification but remains inconsistently implemented across JavaScript engines."
+        },
+        {
+          "id": "prog_hard_2",
+          "text": "Monads in functional programming are a design pattern used to handle program-wide concerns, such as state or I/O, in a purely functional language. They structure programs as a sequence of computations by chaining functions that return wrapped values, abstracting away boilerplate code for side effects."
+        },
+        {
+          "id": "prog_hard_3",
+          "text": "The CAP theorem states that a distributed data store cannot simultaneously provide more than two out of three guarantees: Consistency, Availability, and Partition Tolerance. This fundamental trade-off influences the design and selection of distributed systems like NoSQL databases under network partitions."
+        }
+      ]
+    },
+    "quotes": {
+      "easy": [
+        {
+          "id": "quote_easy_1",
+          "text": "Be the change you wish to see in the world. – Mahatma Gandhi"
+        },
+        {
+          "id": "quote_easy_2",
+          "text": "It always seems impossible until it's done. – Nelson Mandela"
+        },
+        {
+          "id": "quote_easy_3",
+          "text": "The only way to do great work is to love what you do. – Steve Jobs"
+        }
+      ],
+      "medium": [
+        {
+          "id": "quote_medium_1",
+          "text": "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe. – Albert Einstein"
+        },
+        {
+          "id": "quote_medium_2",
+          "text": "The journey of a thousand miles begins with one step. – Lao Tzu"
+        },
+        {
+          "id": "quote_medium_3",
+          "text": "Man is condemned to be free; because once thrown into the world, he is responsible for everything he does. – Jean-Paul Sartre"
+        }
+      ],
+      "hard": [
+        {
+          "id": "quote_hard_1",
+          "text": "There is a theory which states that if ever anyone discovers exactly what the Universe is for and why it is here, it will instantly disappear and be replaced by something even more bizarre and inexplicable. There is another theory which states that this has already happened. – Douglas Adams"
+        },
+        {
+          "id": "quote_hard_2",
+          "text": "I would never die for my beliefs because I might be wrong. – Bertrand Russell"
+        },
+        {
+          "id": "quote_hard_3",
+          "text": "The most beautiful experience we can have is the mysterious. It is the fundamental emotion that stands at the cradle of true art and true science. – Albert Einstein"
+        }
+      ]
+    },
+    "numbers": {
+      "easy": [
+        {
+          "id": "num_easy_1",
+          "text": "We have ten fingers and ten toes. This is why we use a number system based on ten, called the decimal system."
+        },
+        {
+          "id": "num_easy_2",
+          "text": "A square has four equal sides and four right angles. A rectangle also has four angles, but its sides are not all the same length."
+        },
+        {
+          "id": "num_easy_3",
+          "text": "There are sixty seconds in one minute, and sixty minutes in one hour. This means there are three thousand six hundred seconds in an hour."
+        }
+      ],
+      "medium": [
+        {
+          "id": "num_medium_1",
+          "text": "The Fibonacci sequence starts with 0 and 1. Each following number is the sum of the two before it: 0, 1, 1, 2, 3, 5, 8, 13. It appears often in nature, like in the arrangement of pinecone scales."
+        },
+        {
+          "id": "num_medium_2",
+          "text": "A prime number is a whole number greater than 1 that has no positive divisors other than 1 and itself. The first few primes are 2, 3, 5, 7, and 11. The number 2 is the only even prime number."
+        },
+        {
+          "id": "num_medium_3",
+          "text": "In probability, the chance of flipping a fair coin and getting 'heads' is one in two, or 0.5. The probability of rolling a six on a standard die is one in six, approximately 0.1667."
+        }
+      ],
+      "hard": [
+        {
+          "id": "num_hard_1",
+          "text": "Graham's number, a colossal upper bound in Ramsey theory, is so large that its last digits are impossible to compute using conventional mathematics. It is expressed using Knuth's up-arrow notation, a method for representing extremely large integers."
+        },
+        {
+          "id": "num_hard_2",
+          "text": "The Riemann Hypothesis, an unproven conjecture, states that all non-trivial zeros of the Riemann zeta function have a real part equal to 1/2. Its proof would have profound implications for the distribution of prime numbers."
+        },
+        {
+          "id": "num_hard_3",
+          "text": "Chaitin's constant (Ω) is a non-computable number representing the probability that a randomly constructed program will halt for a given universal Turing machine. It is a key concept in algorithmic information theory, embodying randomness in mathematics."
+        }
+      ]
+    }
   }
 }
