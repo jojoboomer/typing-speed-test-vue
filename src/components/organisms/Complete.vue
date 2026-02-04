@@ -10,10 +10,6 @@ import Button from '../atoms/Button.vue'
 import RestartIcon from '../atoms/RestartIcon.vue'
 import KeyboardHeatmap from '../molecules/KeyboardHeatmap.vue'
 
-const store = useTypingStore()
-
-const { accuracy, wpm, isNewRecord, personalRecord, totalErrors, totalCorrect } = storeToRefs(store)
-
 type PageContent = {
   title: string
   subtitle: string
@@ -21,12 +17,25 @@ type PageContent = {
   icon: string
 }
 
+const store = useTypingStore()
+
+const { accuracy, wpm, isNewRecord, personalRecord, totalErrors, totalCorrect } = storeToRefs(store)
+
+const lose = accuracy.value < store.minAccValue
+
 const pageContent: PageContent = {
   title: 'Test Complete!',
   subtitle: 'Solid run. Keep pushing to beat your high score.',
   label: 'Go again',
   icon: Completed,
 }
+
+if (lose) {
+  pageContent.title = 'Keep Trying!'
+  pageContent.subtitle = "Don't be discouraged. Practice makes perfect. Give it another shot to improve your skills."
+  pageContent.label = 'Retry Test'
+}
+
 if (!personalRecord.value) {
   pageContent.title = 'Baseline Established!'
   pageContent.subtitle = "You've set the bar. Now the real challange begins-time to beat it."

@@ -7,7 +7,7 @@ import { computed, ref, watch } from 'vue'
 
 /* ---------- Constantes y types ---------- */
 export const GAME_STATUS = ['initial', 'started', 'finished', 'paused'] as const
-export const END_STATUS = ['first', 'normal', 'record'] as const
+export const END_STATUS = ['first', 'normal', 'record', 'lose'] as const
 export const GAME_MODES = ['timed', 'passage', 'relaxed'] as const
 export const GAME_DIFFICULTY = ['easy', 'medium', 'hard'] as const
 export const GAME_TEXT = ['general', 'programming', 'quotes', 'numbers'] as const
@@ -173,7 +173,7 @@ export const useTypingStore = defineStore(
         return
       }
 
-      if (accuracy.value < minAccValue.value) {
+      if (accuracy.value < minAccValue.value && userInput.value.length > 20) {
         stopGame()
         return
       }
