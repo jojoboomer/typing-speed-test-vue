@@ -41,8 +41,7 @@ const getTooltip = (key: string) => {
 </script>
 
 <template>
-  <div class="flex flex-col gap-2 items-center select-none">
-    <h3 class="text-tp3-regular text-neutral-400 mb-2">Error Heatmap:</h3>
+  <div class="flex flex-col gap-2 items-center select-none mt-2 ">
     <div v-for="(row, rowIndex) in rows" :key="rowIndex" class="flex gap-1.5 md:gap-2 justify-center">
       <div v-for="key in row" :key="key" :title="getTooltip(key)" :class="cn(
         'w-6 h-8 md:w-10 md:h-12 flex items-center justify-center rounded-md border font-mono text-sm md:text-base transition-all duration-300',

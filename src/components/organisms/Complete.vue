@@ -74,16 +74,20 @@ if (!personalRecord.value) {
       <div class="px-6 py-4 space-y-3 border border-neutral-700 rounded-lg w-full lg:w-40 lg:aspect-video text-start">
         <h5 class="text-tp3-regular text-neutral-400">Characters:</h5>
         <p class="text-tp2">
-          <span class="text-green-500">{{ totalCorrect }}</span>/<span class="text-red-500">{{ totalErrors }}</span>
+          {{ totalCorrect }}<span class="text-neutral-400 mx-1">/</span><span class="text-red-500">{{ totalErrors
+            }}</span>
         </p>
       </div>
     </div>
     <!-- Button -->
     <!-- px-6 py-4 space-y-3 border border-neutral-700 rounded-lg w-full lg:w-40 lg:aspect-video text-start -->
 
-    <div class="w-full md:w-fit p-6 rounded-lg border border-neutral-700">
+    <details class="w-full md:w-fit min-w-md p-6 rounded-lg border border-neutral-700">
+      <summary class="text-tp3-regular text-neutral-400 cursor-pointer">
+        Error Heatmap:
+      </summary>
       <KeyboardHeatmap />
-    </div>
+    </details>
 
     <div>
       <Button @click="store.initGame()">
