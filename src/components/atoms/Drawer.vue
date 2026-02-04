@@ -26,10 +26,18 @@ watch(() => props.modelValue, (newVal) => {
 
 watch(isOpen, (newVal) => {
   emit('update:modelValue', newVal);
-  emit(newVal ? 'open' : 'close');
+  if (newVal) emit('open')
+  else emit('close');
   // Reset any drag transform state when toggling the panel so it opens fully
   dragY.value = 0
   dragging.value = false
+  // Prevent body scrolling only while the panel is open
+  try {
+    const body = document.querySelector('body') as HTMLElement | null
+    if (body) body.style.overflow = newVal ? 'hidden' : ''
+  } catch {
+    // ignore
+  }
 });
 
 const open = () => { isOpen.value = true; };
@@ -46,17 +54,7 @@ defineExpose({
   isOpen,
 });
 
-onMounted(() => {
-  // Cleanup body style on unmount
-  const body = document.querySelector('body')
-  body.style.overflow = 'hidden'
-})
-
-onUnmounted(() => {
-  // Cleanup body style on unmount
-  const body = document.querySelector('body')
-  body.style.overflow = null
-})
+// Manage body overflow when panel opens/closes
 
 // Drag to close (bottom sheet)
 const panelRef = ref<HTMLElement | null>(null)
@@ -73,7 +71,7 @@ const onPointerDown = (e: PointerEvent) => {
   sheetHeight = panel.getBoundingClientRect().height
   dragging.value = true
   dragY.value = 0
-    (e.target as Element).setPointerCapture(e.pointerId)
+    ; (e.target as Element).setPointerCapture(e.pointerId)
 }
 
 const onPointerMove = (e: PointerEvent) => {
@@ -93,7 +91,11 @@ const onPointerUp = (e: PointerEvent) => {
     // animate back
     dragY.value = 0
   }
-  try { (e.target as Element).releasePointerCapture(e.pointerId) } catch (err) { }
+  try {
+    ; (e.target as Element).releasePointerCapture(e.pointerId)
+  } catch {
+    // ignore error
+  }
 }
 
 onMounted(() => {
