@@ -9,7 +9,6 @@ export const passageService = {
   async getRandomPassage(difficulty: GameDifficulty, content: GameText): Promise<Passage> {
     const module = await loadPassages()
     // Asumimos estructura { passages: { easy: [], medium: [] } }
-    console.log(module.passages)
     const pool = module.passages[content][difficulty]
 
     if (!pool?.length) {
@@ -17,6 +16,8 @@ export const passageService = {
     }
 
     const idx = Math.floor(Math.random() * pool.length)
-    return pool[idx]
+    const selected = pool[idx]
+    if (!selected) throw new Error('Failed to select passage')
+    return selected
   },
 }

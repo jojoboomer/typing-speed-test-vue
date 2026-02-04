@@ -140,13 +140,14 @@ export const useTypingStore = defineStore(
 
         // Normalizamos a minúsculas para agrupar 'A' y 'a' en la misma tecla física
         const typedChar = newValue[charIndex]?.toLowerCase()
+        if (!typedChar) return
 
         // Inicializar si no existe
         if (!keyStats.value[typedChar]) {
           keyStats.value[typedChar] = { total: 0, errors: 0 }
         }
 
-        const stats = keyStats.value[typedChar]
+        const stats = keyStats.value[typedChar]!
         stats.total++
 
         // Si lo que escribió no coincide con lo esperado

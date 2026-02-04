@@ -4,7 +4,7 @@ export function usePrecisionTimer() {
   const elapsedTime = ref(0)
   const isRunning = ref(false)
   let startTime = 0
-  const pausedTime = 0
+  // removed unused pausedTime
   let rafId: number | null = null
 
   const update = () => {
