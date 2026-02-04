@@ -1,131 +1,124 @@
 <script setup lang="ts">
-import { cn } from "@/lib/utils";
-import { useGameStore } from '@/store/game.store';
-import { useTestStore } from "@/store/test.store";
-import { computed, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue';
-import Button from "../atoms/Button.vue";
-import GameConfig from '../molecules/GameConfig.vue';
-import GameStats from '../molecules/GameStats.vue';
+import { cn } from '@/lib/utils'
+import { useTypingStore } from '@/store/typing.store'
+import { storeToRefs } from 'pinia'
+import { computed, onMounted, onUnmounted, useTemplateRef, watch } from 'vue'
+import Button from '../atoms/Button.vue'
+import PauseIcon from '../atoms/PauseIcon.vue'
+import RestartIcon from '../atoms/RestartIcon.vue'
 
 const inputRef = useTemplateRef('user-area')
 
-const gameState = useGameStore();
-const testState = useTestStore();
+const store = useTypingStore()
+const { currentPassage, status, userInput } = storeToRefs(store)
 
-let interval: ReturnType<typeof setInterval> | null = null;
-const userInput = ref('')
-const indexCursor = ref(0)
-const passageArray = computed(() => testState.passageSelected.split(''));
+// Convert passage text into an array of characters
+const passageArray = computed(() => {
+  return currentPassage.value?.text.split('') || []
+})
 
-// computed class for every char
+const showButtons = () => status.value == 'started' || status.value == 'paused'
+
+const showBlur = () => currentPassage && (status.value == 'initial' || status.value == 'paused')
+
+// Compute CSS classes for each character based on user input accuracy
 const charClasses = computed(() => {
-  return passageArray.value.map((char, index) => {
-    let className = 'text-neutral-400'
+  if (!currentPassage.value) return []
 
-    if (index < userInput.value.length) {
-      if (userInput.value[index] === char) {
-        className = 'text-green-500'
-      } else {
-        className = 'text-red-500 underline'
-      }
+  return currentPassage.value.text.split('').map((char, index) => {
+    const userChar = userInput.value[index]
+
+    if (userChar == null) {
+      const isCursor = index === userInput.value.length
+      return isCursor && status.value !== 'finished'
+        ? 'bg-neutral-0/20 rounded text-neutral-400'
+        : 'text-neutral-400'
     }
 
-    if (index === userInput.value.length) {
-      className = `${className} bg-neutral-0/20 rounded`
-    }
-
-    return className
+    return userChar === char ? 'text-green-500' : 'text-red-500 underline'
   })
 })
 
-// watch for user text inserted
-watch(userInput, (newInput, oldInput) => {
-  if (newInput.length > (oldInput?.length || 0)) {
-    const newIndex = newInput.length - 1
-    const newChar = newInput[newIndex]
-    const expectedChar = passageArray.value[newIndex]
-
-    if (newIndex >= indexCursor.value) {
-      indexCursor.value++
-      if (newChar === expectedChar) {
-        testState.addCorrectChar()
-      } else {
-        testState.addWrongChar()
-      }
-    }
-  }
-}, { immediate: true })
-
-//watch for text completation
-watch(() => testState.shouldEnd, (isTrue) => isTrue && handleEndGame())
-
-// get new text every time component is mounted
-onMounted(() => {
-  testState.getRandomPassage()
-  testState.restartTestState()
-  gameState.status = 'initial'
-})
-onUnmounted(() => {
-  if (interval) {
-    clearInterval(interval)
-    interval = null
-  }
-})
-
-// auxiliar functions
+// Start the game and focus the input field
 const handleStart = () => {
-  if (interval) {
-    clearInterval(interval);
-    interval = null
-  }
-  gameState.startGame();
-  interval = setInterval(() => {
-    testState.elapsedTime++
-  }, 1000)
-  if (inputRef.value) {
-    inputRef.value.focus();
+  store.startGame()
+  focusInput()
+}
+
+// Reset the game to initial state
+const handleStopGame = () => {
+  store.initGame()
+  focusInput()
+}
+
+// pause the game
+const handlePauseToggle = () => {
+  if (status.value === 'paused') {
+    store.resumeGame()
+  } else {
+    store.pauseGame()
   }
 }
 
-const handleEndGame = async () => {
-  clearInterval(interval);
-  interval = null
-  gameState.endGame()
+// Handle textarea input and update store with user input
+const handleInput = (e: Event) => {
+  const target = e.target as HTMLTextAreaElement
+  store.handleInput(target.value)
 }
 
-const handleClick = () => {
-  if (inputRef.value) {
-    inputRef.value.focus();
+// Focus the hidden textarea input field
+const focusInput = () => {
+  if (status.value !== 'finished' && inputRef.value) {
+    inputRef.value.focus()
   }
 }
+
+// Auto-focus input when game status changes to 'started'
+watch(status, (newVal) => {
+  if (newVal === 'started') focusInput()
+})
+
+// Initialize the game on component mount (loads passage asynchronously)
+onMounted(() => {
+  store.initGame()
+})
+
+// Cleanup when component unmounts (stops the timer composable)
+onUnmounted(() => {
+  store.stopGame()
+})
 </script>
 
 <template>
-  <section
-    class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 md:gap-4 pb-4 border-b border-neutral-700">
-    <GameStats />
-    <GameConfig />
-  </section>
   <section class="relative">
     <!-- Bluur -->
-    <div v-if="gameState.status == 'initial'" @click="handleStart"
+    <div v-if="status == 'initial'" @click="handleStart"
       class="absolute w-full h-full z-50 flex items-center justify-center cursor-pointer">
-      <div class=" text-center space-y-5">
+      <div class="text-center space-y-5">
         <Button :handle-click="handleStart" class="bg-blue-500! text-neutral-0!">Start Typing Test</Button>
         <p class="text-tp3-semibold">Or click the text and start typing</p>
       </div>
     </div>
     <!-- Tipyng board -->
-    <div @click="handleClick" :class="cn(
-      'relative text-tp1-regular cursor-text min-h-50',
-      gameState.status == 'initial' && 'blur-xs'
-    )">
-      <div class="whitespace-pre-wrap wrap-break-word ">
+    <div @click="focusInput" :class="cn('relative text-tp1-regular cursor-text min-h-50', showBlur() && 'blur-sm')">
+      <div class="whitespace-pre-wrap wrap-break-word">
         <span v-for="(char, index) in passageArray" :key="index" :class="charClasses[index]">
           {{ char }}
         </span>
       </div>
     </div>
-    <textarea ref="user-area" v-model="userInput" class="sr-only" aria-label="Type the passage here" />
+    <textarea ref="user-area" :value="userInput" class="sr-only" aria-label="Type the passage here" autocomplete="off"
+      autocorrect="off" autocapitalize="off" spellcheck="false" @input="handleInput" @blur="focusInput" />
+  </section>
+  <section class="border-t border-neutral-700 pt-6 md:pt-8 flex items-center justify-center gap-4">
+    <Button v-if="showButtons()" :handle-click="handleStopGame" class="bg-neutral-800">
+      <span class="text-neutral-0">Restart Test </span>
+      <RestartIcon width="10" height="10" :color="'var(--color-neutral-0)'" />
+    </Button>
+    <Button v-if="showButtons()" class="bg-neutral-800" :handle-click="handlePauseToggle"
+      :disabled="status === 'initial' || status === 'finished'">
+      <span class="text-neutral-0">{{ status === 'paused' ? 'Resume' : 'Pause' }}</span>
+      <PauseIcon width="10" height="10" :color="'var(--color-neutral-0)'" />
+    </Button>
   </section>
 </template>
