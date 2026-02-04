@@ -4,7 +4,7 @@ import { capitalize } from '@/lib/utils'
 import { GAME_DIFFICULTY, GAME_TEXT, useTypingStore } from '@/store/typing.store'
 import type { GameDifficulty, GameMode, GameText } from '@/types'
 import { storeToRefs } from 'pinia'
-import { ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import ButtonSelection from '../atoms/ButtonSelection.vue'
 import Divider from '../atoms/Divider.vue'
 import Drawer from '../atoms/Drawer.vue'
@@ -13,6 +13,21 @@ const store = useTypingStore()
 const { mode, difficulty, textContent, minAccValue, status } = storeToRefs(store)
 const isOpen = ref(false)
 const customAcc = ref(false)
+
+const isBottomSheet = ref(false)
+
+const updateIsBottom = () => {
+  isBottomSheet.value = window.innerWidth < 380
+}
+
+onMounted(() => {
+  updateIsBottom()
+  window.addEventListener('resize', updateIsBottom)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateIsBottom)
+})
 
 const handleOpen = () => {
   if (status.value != 'paused') {
@@ -42,7 +57,7 @@ const onChangeTextContent = (value: GameText) => {
 </script>
 
 <template>
-  <Drawer v-model="isOpen" @open="handleOpen" @close="handleClose">
+  <Drawer v-model="isOpen" @open="handleOpen" @close="handleClose" :position="isBottomSheet ? 'bottom' : 'right'">
     <template #trigger="{ toggle, isOpen: drawerOpen }">
       <button @click="toggle" :aria-expanded="drawerOpen"
         class="md:hidden block border p-1 w-12 border-neutral-500 rounded-lg hover:border-blue-500! hover:text-blue-500 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-900">
