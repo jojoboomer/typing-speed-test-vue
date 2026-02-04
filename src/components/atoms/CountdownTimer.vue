@@ -5,12 +5,12 @@
 </template>
 
 <script setup>
-import { useGameStore } from '@/store/game.store';
+import { useTypingStore } from '@/store/typing.store';
 import { computed, ref, watch } from 'vue';
 
 const TIME_DURATION = 60
 
-const store = useGameStore();
+const store = useTypingStore();
 
 let interval = null;
 const timeLeft = ref(TIME_DURATION);
