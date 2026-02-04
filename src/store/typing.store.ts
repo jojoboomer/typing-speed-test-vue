@@ -29,8 +29,7 @@ export const useTypingStore = defineStore(
     const mode = ref<GameMode>('timed')
     const difficulty = ref<GameDifficulty>('easy')
     const textContent = ref<GameText>('general')
-    const minAcc = ref<boolean>(false)
-    const minAccValue = ref<number>(50)
+    const minAccValue = ref<number>(15) // default minimum accuracy to 15%
 
     // current passage data
     const currentPassage = ref<Passage | null>(null)
@@ -161,8 +160,6 @@ export const useTypingStore = defineStore(
     }
 
     function checkGameEndConditions() {
-      console.log(minAcc.value && accuracy.value < minAccValue.value)
-
       if (mode.value === 'timed' && timer.elapsedTime.value >= targetDuration.value) {
         stopGame()
         return
@@ -176,7 +173,7 @@ export const useTypingStore = defineStore(
         return
       }
 
-      if (minAcc.value && accuracy.value < minAccValue.value) {
+      if (accuracy.value < minAccValue.value) {
         stopGame()
         return
       }
@@ -207,7 +204,6 @@ export const useTypingStore = defineStore(
       totalErrors,
       totalCorrect: correctChars,
       textContent,
-      minAcc,
       minAccValue,
 
       // Actions

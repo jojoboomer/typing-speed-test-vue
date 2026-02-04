@@ -6,7 +6,7 @@ import Divider from '../atoms/Divider.vue'
 
 const store = useTypingStore()
 
-const { wpm, accuracy, elapsedTime, targetDuration, minAccValue, minAcc } = storeToRefs(store)
+const { wpm, accuracy, elapsedTime, targetDuration, minAccValue } = storeToRefs(store)
 
 const remainingTime = computed(() => {
   // passage
@@ -18,7 +18,7 @@ const remainingTime = computed(() => {
 })
 
 const accuracyColor = computed(() => {
-  const minValue = minAcc.value ? minAccValue.value : 0
+  const minValue = minAccValue.value
   return accuracy.value - minValue < 40 ? 'text-red-500' : 'text-neutral-0'
 })
 const timeColor = computed(() => {
