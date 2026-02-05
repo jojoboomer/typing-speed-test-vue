@@ -1,89 +1,207 @@
-# Frontend Mentor - Typing Speed Test solution
+# Vue Typing Challenge ⌨️
 
-This is a solution to the [Typing Speed Test challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/typing-speed-test). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+Una aplicación de prueba de velocidad de escritura moderna y responsive, construida con **Vue 3**, **Pinia**, **Tailwind CSS** y **TypeScript**.
 
-## Table of contents
+## 📋 Tabla de contenidos
 
-- [Frontend Mentor - Typing Speed Test solution](#frontend-mentor---typing-speed-test-solution)
-  - [Table of contents](#table-of-contents)
-  - [Overview](#overview)
-    - [The challenge](#the-challenge)
-    - [Screenshot](#screenshot)
-    - [Links](#links)
-  - [My process](#my-process)
-    - [Built with](#built-with)
-    - [What I learned](#what-i-learned)
-    - [Continued development](#continued-development)
-    - [Useful resources](#useful-resources)
-  - [Author](#author)
-  - [Acknowledgments](#acknowledgments)
+- [Características](#características)
+- [Tecnologías](#tecnologías)
+- [Setup y desarrollo](#setup-y-desarrollo)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Testing](#testing)
+- [Lo que aprendí](#lo-que-aprendí)
+- [Próximos pasos](#próximos-pasos)
+- [Autor](#autor)
 
-## Overview
+## ✨ Características
 
-### The challenge
+- **3 modos de juego:**
+  - **Timed**: 60 segundos de prueba
+  - **Relaxed**: 120 segundos sin presión
+  - **Passage**: Completa el pasaje sin límite de tiempo
 
-Users should be able to:
+- **3 niveles de dificultad:** Easy, Medium, Hard
+- **4 categorías de textos:** General, Programming, Quotes, Numbers
+- **Métricas en tiempo real:**
+  - WPM (Palabras Por Minuto)
+  - Accuracy (Precisión)
+  - Errores por tecla (heatmap)
+- **Configuración personalizable**
+  - Accuracy mínima requerida (configurable)
+  - Guardar preferencias
+- **Diseño responsive** para todos los dispositivos
+- **Testing completo:** Unit tests (Vitest) + E2E (Playwright)
 
-- View the optimal layout for the interface depending on their device's screen size
-- See hover and focus states for all interactive elements on the page
+## 🛠️ Tecnologías
 
-### Screenshot
+| Stack         | Herramientas        |
+| ------------- | ------------------- |
+| **Framework** | Vue 3 + TypeScript  |
+| **State**     | Pinia               |
+| **Styling**   | Tailwind CSS        |
+| **Build**     | Vite                |
+| **Testing**   | Vitest + Playwright |
+| **Linting**   | ESLint + Prettier   |
 
-![](./screenshot.jpg)
+## 🚀 Setup y desarrollo
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+### Requisitos previos
+- Node.js 18+ 
+- Yarn 3.6+
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
+### Instalación
 
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
+```bash
+# Clonar repositorio
+git clone https://github.com/jojoboomer/vue-typing-challenge.git
+cd vue-typing-challenge
 
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+# Instalar dependencias
+yarn install
 
-### Links
-
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
-
-## My process
-
-### Built with
-
-- [Vite](https://vite.dev/)
-- [Vue3](https://vuejs.org/)
-- [TailwindCss](https://tailwindcss.com/)
-- [Pinia](https://pinia.vuejs.org/)
-
-### What I learned
-
-Como desarrollador, aprender es mi mayor pasion. Este diciembre me he dedicado a estudiar un framework que me ha enamorado: hablo de Vue. Este reto ha sido mi 2do proyecto personal con la herramienta donde he puesto en práctica varias de sus....
-
-Atomic design
-
-```html
-<template>
-
-</template>
+# Iniciar servidor de desarrollo (localhost:5173)
+yarn dev
 ```
 
-### Continued development
+### Comandos útiles
 
-Mi proximo paso sera avanzar en el entorno de herramientas que acompañan a Vue, como Nuxt para desarrollo o Vuetify y VuePrime como alternativas para el diseño.
+```bash
+yarn build         # Build para producción
+yarn preview       # Previsualizar build
+yarn lint          # Ejecutar ESLint y formatear
+yarn type-check    # Verificar tipos TypeScript
 
-### Useful resources
+# Testing
+yarn test          # Unit tests (Vitest)
+yarn test:e2e      # E2E tests (Playwright)
+yarn test:e2e:ui   # E2E tests con UI de Playwright
+```
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+## 📁 Estructura del proyecto
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+```
+src/
+├── assets/              # Imágenes e iconos
+├── components/
+│   ├── atoms/          # Elementos base (Button, Drawer, etc.)
+│   ├── molecules/      # Componentes combinados
+│   └── organisms/      # Componentes complejos
+├── composables/        # Vue composables reutilizables
+├── data/              # Datos de pasajes para typing
+├── lib/               # Utilidades y servicios
+│   ├── passageService.ts
+│   ├── typing-utils.ts
+│   └── utils.ts
+├── store/             # Pinia store
+│   └── typing.store.ts
+├── pages/             # Vistas de la aplicación
+├── types.ts           # Tipos TypeScript compartidos
+├── App.vue            # Componente raíz
+└── main.ts            # Punto de entrada
 
-## Author
+e2e/                   # Tests E2E (Playwright)
+src/__tests__/         # Tests unitarios (Vitest)
+```
 
-- Website - [José J. Labrada Carmenate](https://jojoboomer.github.io/)
-- Frontend Mentor - [@jojoboomer](https://www.frontendmentor.io/profile/jojoboomer)
-- Linkedin - [@joellabrada](https://www.linkedin.com/in/joellabrada)
+## 🧪 Testing
 
-## Acknowledgments
+### Unit Tests (Vitest)
+Tests para lógica de stores, composables y utilidades:
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+```bash
+yarn test              # Ejecutar tests
+yarn test --ui         # Con interfaz gráfica
+```
 
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+### E2E Tests (Playwright)
+Tests de flujos de usuario y interacciones:
+
+```bash
+yarn test:e2e          # Modo headless
+yarn test:e2e:ui       # Con interfaz de Playwright
+```
+
+## 🎓 Lo que aprendí
+
+Este proyecto me permitió profundizar en varios aspectos de Vue 3:
+
+### Composition API
+- `ref`, `computed`, `watch` para reactividad
+- Extracción de lógica con composables personalizados
+- Patrones de optimización y rendimiento
+
+### Pinia & State Management
+- Estructura clara de store con state, getters y actions
+- Manejo de estado complejo en aplicaciones interactivas
+- Persistencia y sincronización de datos
+
+### Atomic Design
+Organización modular de componentes en 4 niveles:
+- **Atoms**: Elementos indivisibles (Button, Drawer, Modal)
+- **Molecules**: Combinaciones funcionales (ConfigDrawer, GameStats)
+- **Organisms**: Secciones complejas (GameBoard, Header)
+- **Templates**: Layouts completos
+
+### TypeScript
+- Union types con `as const`
+- Tipado exhaustivo de props y emits
+- Interfaces para contratos claros
+
+### Tailwind CSS
+- Enfoque utility-first puro (sin CSS personalizado)
+- Estrategia responsive con breakpoints
+- Creación de sistema de diseño consistente
+
+### Testing
+- Unit tests con Vitest
+- E2E tests con Playwright
+- Mocking de datos externos
+
+## 📈 Próximos pasos
+
+- [ ] Agregar persistencia (localStorage/IndexedDB)
+- [ ] Implementar sistema de ranking
+- [ ] Agregar estadísticas históricas
+- [ ] Soporte para modo offline
+- [ ] Integración con API backend (opcional)
+- [ ] Temas oscuro/claro
+- [ ] Múltiples idiomas
+
+## 📚 Recursos útiles
+
+- [Vue 3 Documentation](https://vuejs.org/) - Guía oficial de Vue 3
+- [Pinia Documentation](https://pinia.vuejs.org/) - State management para Vue
+- [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utility-first
+- [Vite Documentation](https://vite.dev/) - Build tool ultrarrápido
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/) - Guía de TypeScript
+- [Vitest](https://vitest.dev/) - Framework de testing para Vue
+- [Playwright](https://playwright.dev/) - E2E testing automation
+
+## 💡 Contribuir
+
+Si encuentras bugs o tienes sugerencias, siéntete libre de abrir un issue o pull request.
+
+## 👤 Autor
+
+**José J. Labrada Carmenate**
+- 🌐 Portafolio: [jojoboomer.github.io](https://jojoboomer.github.io/)
+- 💼 LinkedIn: [@joellabrada](https://www.linkedin.com/in/joellabrada)
+- 🏆 Frontend Mentor: [@jojoboomer](https://www.frontendmentor.io/profile/jojoboomer)
+- 🐙 GitHub: [@jojoboomer](https://github.com/jojoboomer)
+
+## 📝 Normas de desarrollo
+
+Para colaborar en este proyecto, consulta [INSTRUCTIONS.md](./INSTRUCTIONS.md) donde encontrarás:
+- Convenciones de código
+- Estructura de componentes
+- Patrones de Pinia
+- Estándares de testing
+- Guía de commits
+
+## 📄 Licencia
+
+Este proyecto está bajo licencia MIT. Ver `LICENSE` para más detalles.
+
+---
+
+**Nota:** Este proyecto es una solución al [Typing Speed Test Challenge de Frontend Mentor](https://www.frontendmentor.io/challenges/typing-speed-test).
