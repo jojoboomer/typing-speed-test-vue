@@ -2,6 +2,8 @@
 
 Una aplicación de prueba de velocidad de escritura moderna y responsive, construida con **Vue 3**, **Pinia**, **Tailwind CSS** y **TypeScript**.
 
+🚀 **[Demo en vivo](https://quicktype-six.vercel.app/)**
+
 ## 📋 Tabla de contenidos
 
 - [Características](#características)
@@ -53,7 +55,7 @@ Una aplicación de prueba de velocidad de escritura moderna y responsive, constr
 
 ```bash
 # Clonar repositorio
-git clone https://github.com/jojoboomer/vue-typing-challenge.git
+git clone https://github.com/jojoboomer/typing-speed-test-vue
 cd vue-typing-challenge
 
 # Instalar dependencias
