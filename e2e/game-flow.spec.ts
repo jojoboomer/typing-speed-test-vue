@@ -27,7 +27,6 @@ test.describe('Game Flow E2E', () => {
     await input.type('H', { delay: 50 })
 
     // Check that some game UI appeared (timer, stats, etc.)
-    const timer = page.locator('text=/time|timer|elapsed/i')
     // Timer might not be immediately visible, check for any game indicator
     await page.waitForTimeout(500)
 
