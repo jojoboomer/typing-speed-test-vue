@@ -32,7 +32,8 @@ const pageContent: PageContent = {
 
 if (lose) {
   pageContent.title = 'Keep Trying!'
-  pageContent.subtitle = "Don't be discouraged. Practice makes perfect. Give it another shot to improve your skills."
+  pageContent.subtitle =
+    "Don't be discouraged. Practice makes perfect. Give it another shot to improve your skills."
   pageContent.label = 'Retry Test'
 }
 
@@ -92,9 +93,7 @@ if (!personalRecord.value) {
     <!-- px-6 py-4 space-y-3 border border-neutral-700 rounded-lg w-full lg:w-40 lg:aspect-video text-start -->
 
     <details class="w-full md:w-fit min-w-md p-6 rounded-lg border border-neutral-700">
-      <summary class="text-tp3-regular text-neutral-400 cursor-pointer">
-        Error Heatmap:
-      </summary>
+      <summary class="text-tp3-regular text-neutral-400 cursor-pointer">Error Heatmap:</summary>
       <KeyboardHeatmap />
     </details>
 

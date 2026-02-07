@@ -33,12 +33,12 @@ const handleOpen = () => {
   if (status.value != 'paused') {
     store.pauseGame()
   }
-};
+}
 const handleClose = () => {
   if (status.value == 'paused') {
     store.resumeGame()
   }
-};
+}
 
 const onChangeMode = (value: GameMode) => {
   store.setMode(value)
@@ -51,7 +51,7 @@ const onChangeDifficulty = (value: GameDifficulty) => {
 }
 
 const onChangeTextContent = (value: GameText) => {
-  store.setTextContet(value)
+  store.setTextContent(value)
   store.initGame()
 }
 </script>

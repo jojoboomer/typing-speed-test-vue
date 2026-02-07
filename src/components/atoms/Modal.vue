@@ -1,17 +1,18 @@
 <script setup lang="ts">
-import { Transition } from 'vue';
-
-const props = defineProps({
+defineProps({
   show: Boolean,
 })
 </script>
 
 <template>
   <Transition name="modal">
-    <div v-if="show"
-      class="modal-mask fixed z-9998 top-0 left-0 w-full h-full bg-black/50 flex transition-opacity duration-300 ease-out overflow-hidden">
+    <div
+      v-if="show"
+      class="modal-mask fixed z-9998 top-0 left-0 w-full h-full bg-black/50 flex transition-opacity duration-300 ease-out overflow-hidden"
+    >
       <div
-        class="modal-container space-y-4 bg-neutral-900 text-neutral-0 border border-neutral-700 max-w-md m-auto p-6 rounded-lg transition-all duration-300 ease-in-out">
+        class="modal-container space-y-4 bg-neutral-900 text-neutral-0 border border-neutral-700 max-w-md m-auto p-6 rounded-lg transition-all duration-300 ease-in-out"
+      >
         <div class="modal-header text-tp3-regular">
           <slot name="header">Confirm</slot>
         </div>
@@ -24,7 +25,8 @@ const props = defineProps({
           <slot name="footer">
             <button
               class="modal-default-button cursor-pointer bg-neutral-0 text-neutral-900 text-tp5 px-4 py-2.5 has-[>svg]:px-3 inline-flex items-center justify-center gap-2.5 whitespace-nowrap rounded-xl transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none"
-              @click="$emit('close')">
+              @click="$emit('close')"
+            >
               OK
             </button>
           </slot>

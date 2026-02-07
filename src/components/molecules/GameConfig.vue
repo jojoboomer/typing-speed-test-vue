@@ -3,12 +3,12 @@ import { capitalize } from '@/lib/utils'
 import { GAME_DIFFICULTY, useTypingStore } from '@/store/typing.store'
 import { type GameDifficulty, type GameMode } from '@/types'
 import { storeToRefs } from 'pinia'
-import { ref, Teleport } from 'vue'
+import { ref } from 'vue'
 import Button from '../atoms/Button.vue'
 import ButtonSelection from '../atoms/ButtonSelection.vue'
 import Divider from '../atoms/Divider.vue'
 import DropdownItem from '../atoms/Dropdown/DropdownItem.vue'
-import Dropdown from '../atoms/Dropdown/index.vue'
+import Dropdown from '../atoms/Dropdown/DropdownMenu.vue'
 import Modal from '../atoms/Modal.vue'
 import ConfigDrawer from './ConfigDrawer.vue'
 
@@ -65,8 +65,6 @@ const handleConfirm = () => {
   store.initGame()
   closeModal()
 }
-
-const openDropdown = ref(false)
 </script>
 
 <template>

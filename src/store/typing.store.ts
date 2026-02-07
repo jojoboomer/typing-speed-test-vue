@@ -182,7 +182,7 @@ export const useTypingStore = defineStore(
 
     watch(
       () => timer.elapsedTime.value,
-      (newVal) => {
+      () => {
         if (status.value === 'started') checkGameEndConditions()
       },
     )
@@ -221,7 +221,7 @@ export const useTypingStore = defineStore(
       setDifficulty: (d: GameDifficulty) => {
         difficulty.value = d
       },
-      setTextContet: (d: GameText) => {
+      setTextContent: (d: GameText) => {
         textContent.value = d
       },
     }
